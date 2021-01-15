@@ -29,13 +29,23 @@ Expo Project에서 css를 적용하려면 다음과 같습니다.  (개인 지�
 
 
 
+### 구현 후기 및 단점
+
+Context API를 사용하지 않으니, 직접 설계해야하는 복잡도가 증가하였고, 더군다나 Theme Update가 쉽지 않습니다.
+
+light Theme, Dark Theme를 바로바로 변경하려면 역시 Context API는 추가했어야 싶습니다.
+
+물론 구현 내용을 조금만 변경하면 쉽게 Context API를 적용하여 사용할 수 있기 때문에 직접 도전해보는 것도 좋을 것 같습니다.
+
+
+
 ## 구현
 
 Atomic Design 을 기반으로 프로젝트 구조를 설계하였습니다.
 
 사용할 Component를 직접 구현하고 styles를 부모로 부터 전달 받는 일종의 패턴으로 구현했습니다.
 
-  원하는 방식으로 직접 조정하며 변경하는 편이 좋습니다.
+원하는 방식으로 직접 조정하며 변경하는 편이 좋습니다.
 
 
 
@@ -49,6 +59,7 @@ Project
     │ 	└─Container.js
     │	└─index.js
     │	└─Text.js
+	│	└─Button.js
     └─styles
     	└─index.js
     	└─Styles.js
@@ -84,7 +95,7 @@ Project
 ```js
 import React from 'react';
 
-import { Text, Container } from './src/components/atoms'
+import { Text, Container, Button } from './src/components/atoms'
 import theme from './src/styles'
 
 const styles = theme.templates.Base_Light
@@ -92,10 +103,18 @@ const styles = theme.templates.Base_Light
 export default function App() {
   return (
     <Container style={styles}>
-
-      <Text
-        style={{color:'pink'}}
-      >Opeon your app!!</Text>
+      <Container>
+        <Text>Open your app 1 !!</Text>
+        <Text
+          style={{color:'red'}}
+        >Open your app 2 !!</Text>
+        <Text
+          style={{color:'yellow'}}
+        >Open your app 3 !!</Text>
+      </Container>
+      <Button onPress={() => console.log("HIHIHIHI")}>
+        <Text>onPress</Text>
+      </Button>
     </Container>
   );
 }
@@ -144,6 +163,7 @@ const colors = {
     red: "",
     black: "#000000",
     white: "#FFFFFF",
+    silver: 'silver'
 }
 
 const baseLightStyle = StyleSheet.create({
@@ -159,6 +179,10 @@ const baseLightStyle = StyleSheet.create({
         color:colors.white,
         margin:margins.base
     },
+    btn: {
+        backgroundColor: colors.silver,
+        padding: paddings.base
+    }
 
 })
 
@@ -178,6 +202,7 @@ export const theme = {
     colors,
     paddings,
     templates,
+
 }
 ```
 

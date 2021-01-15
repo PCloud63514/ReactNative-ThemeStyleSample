@@ -1,13 +1,7 @@
 import React, { Component } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 
-const defaultStyle = StyleSheet.create({
-    container: {
-        backgroundColor:'black'
-    }
-})
-
-export default class Container extends Component {
+export default class Button extends Component {
     cloneRender(style, children) {
         if(children.map !== undefined) {
             return children.map( (child) => { 
@@ -19,12 +13,16 @@ export default class Container extends Component {
     }
 
     render() {
-        const { style, children } = this.props
-        const { container } = style ? style : {}
+        const { style, children, s, onPress }  = this.props
+        const { btn } = style ? style : {}
 
         return (
-        <View style={[defaultStyle.container, container]}>
+        <TouchableOpacity
+            style={[btn]}
+            onPress={onPress}
+        >
             { children ? this.cloneRender(style, children) : {} }
-        </View>)
+        </TouchableOpacity>
+        )
     }
 }

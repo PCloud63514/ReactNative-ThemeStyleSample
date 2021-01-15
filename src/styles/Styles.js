@@ -36,6 +36,7 @@ const colors = {
     red: "",
     black: "#000000",
     white: "#FFFFFF",
+    silver: 'silver'
 }
 
 const baseLightStyle = StyleSheet.create({
@@ -51,6 +52,10 @@ const baseLightStyle = StyleSheet.create({
         color:colors.white,
         margin:margins.base
     },
+    btn: {
+        backgroundColor: colors.silver,
+        padding: paddings.base
+    }
 
 })
 
@@ -70,4 +75,5 @@ export const theme = {
     colors,
     paddings,
     templates,
+
 }
