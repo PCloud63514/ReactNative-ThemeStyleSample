@@ -269,3 +269,13 @@ export class MyText extends Component {
     }
 }
 ```
+
+
+
+## 결과화면
+
+예쁘지 않은 디자인이 나왔지만 나름 효과적으로 적용이 되는 것을 확인했습니다!
+
+children 을 갖은 Component는 따로 정리해야 다른 프로젝트 적용에 용이할 듯 합니다.
+
+![image](https://user-images.githubusercontent.com/22608825/104701036-69480c00-5758-11eb-9bfc-357fb794307d.png)
