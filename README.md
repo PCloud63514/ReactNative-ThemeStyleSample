@@ -46,9 +46,9 @@ Project
 └─src
     ├─components
     │  ├─atoms
-    │		└─Container.js
-    │		└─index.js
-    │		└─Text.js
+    │ 	└─Container.js
+    │	└─index.js
+    │	└─Text.js
     └─styles
     	└─index.js
     	└─Styles.js
